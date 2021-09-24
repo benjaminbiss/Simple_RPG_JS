@@ -5,6 +5,7 @@ let player = {
     name: "Hercules",
     health: 100,
     attackPower: 20,
+    defending: false,
     attacks: ['Dodge', 'Uppercut', 'Round House Kick', 'Full Nelson']
 }
 // Nemean Lion
@@ -29,10 +30,21 @@ let dogo = {
     descriptor: "The Underworld Dogo"
 }
 
-while (player.health > 0 || lion.health > 0) {
-    function attack(attacker, defender) {
-        defender.health -= attacker.attackPower;
+
+function battle(player, enemy) {
+    while (player.health > 0 && lion.health > 0) {
+        function attack(attacker, defender) {
+            defender.health -= attacker.attackPower;
+            return defender;
+        }
+        if (player.defending === false) {
+            enemy = attack(player, lion);
+            player.defending = !player.defending;
+        }
+        else {
+            player = attack(lion, player);
+            player.defending = !player.defending;
+        }
     }
-    attack(player, lion);
-    attack(lion, player);
 }
+battle(player, lion);
