@@ -30,32 +30,42 @@ let dogo = {
     descriptor: "The Underworld Dogo"
 }
 
-// Function to run a battle between the player and the enemy
-function battle(player, enemy) {
-    while (player.health > 0 && lion.health > 0) {
-        function attack(attacker, defender) {
-            if (attacker.name === player.name) {
-                let attackType = prompt("Choose your attack!\n1. Uppercut\n2. Right Hook\n3. Round House Kick\n4. Full Nelson");
-                defender.health -= attacker.attackPower * attackType;
-                alert(`${attacker.name} used ${attacker.attacks[attackType - 1]}`);
-                return defender;
+
+function runGame(){
+
+    // Function to run a battle
+    function battle(player, enemy) {
+        while (player.health > 0 && enemy.health > 0) {
+            function attack(attacker, defender) {
+                if (attacker.name === player.name) {
+                    let attackType = prompt("Choose your attack!\n1. Uppercut\n2. Right Hook\n3. Round House Kick\n4. Full Nelson");
+                    defender.health -= attacker.attackPower * attackType;
+                    console.log(`${attacker.name} used ${attacker.attacks[attackType - 1]} dealing ${attacker.attackPower * attackType} damage to ${defender.name}, their health is now at ${defender.health}`);
+                    return defender;
+                }
+                else {
+                    let attackType = Math.floor(Math.random() * 4);
+                    defender.health -= attacker.attackPower;
+                    console.log(`${attacker.name} used ${attacker.attacks[attackType]} dealing ${attacker.attackPower * attackType} damage to ${defender.name}, your health is now at ${defender.health}`);
+                    return defender;
+                }
+                
+            }
+            if (player.defending === false) {
+                enemy = attack(player, lion);
+                player.defending = !player.defending;
             }
             else {
-                let attackType = Math.floor(Math.random() * 4);
-                defender.health -= attacker.attackPower * (attackType - 1);
-                alert(`${attacker.name} used ${attacker.attacks[attackType]}`);
-                return defender;
+                player = attack(lion, player);
+                player.defending = !player.defending;
             }
-            
-        }
-        if (player.defending === false) {
-            enemy = attack(player, lion);
-            player.defending = !player.defending;
-        }
-        else {
-            player = attack(lion, player);
-            player.defending = !player.defending;
         }
     }
+    // Hercules vs Nemean Lion
+    battle(player, lion);
+    player.health = 200;
+    // Hercules vs Lernaean Hydra
+    battle(player, hydra);
 }
-battle(player, lion);
+
+runGame();
