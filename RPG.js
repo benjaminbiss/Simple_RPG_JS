@@ -2,7 +2,7 @@
 
 // attack controls damage and health of the objects
 function attack(attacker, defender) {
-    if (attacker.name === player.name) {
+    if (attacker.name === 'Hercules') {
         let attackType = prompt("Choose your attack!\n1. Uppercut\n2. Right Hook\n3. Round House Kick\n4. Full Nelson");
         defender.health -= attacker.attackPower * attackType;
         console.log(`${attacker.name} used ${attacker.attacks[attackType - 1]} dealing ${attacker.attackPower * attackType} damage to ${defender.name}, their health is now at ${defender.health}`);
