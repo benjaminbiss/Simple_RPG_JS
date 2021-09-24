@@ -1,35 +1,5 @@
 // JavaScript RPG
 
-// Hercules
-let player = {
-    name: "Hercules",
-    health: 100,
-    attackPower: 10,
-    defending: false,
-    attacks: ['Uppercut', 'Right Hook', 'Round House Kick', 'Full Nelson']
-}
-// Nemean Lion
-let lion = {
-    name: "Nemean Lion",
-    descriptor: "The Vicious",
-    health: 200,
-    attackPower: 10,
-    attacks: ['Nibble', 'Claw', 'Bite', 'Pounce']
-}
-// Lernaean Hydra
-let hydra = {
-    name: "Lernaean Hydra",
-    descriptor: "The Impossible Nine-Headed",
-    health: 250,
-    attackPower: 20,
-    attacks: ['Bite', 'Regenerate', 'Constrict']
-}
-// Cerberus
-let dogo = {
-    name: "Cerberus",
-    descriptor: "The Underworld Dogo"
-}
-
 // attack controls damage and health of the objects
 function attack(attacker, defender) {
     if (attacker.name === player.name) {
@@ -63,6 +33,32 @@ function battle(player, enemy) {
 
 // runGame controls the event order of the story
 function runGame(){
+
+        // Hercules
+    let player = {
+        name: "Hercules",
+        health: 100,
+        attackPower: 10,
+        defending: false,
+        attacks: ['Uppercut', 'Right Hook', 'Round House Kick', 'Full Nelson']
+    }
+    // Nemean Lion
+    let lion = {
+        name: "Nemean Lion",
+        descriptor: "The Vicious",
+        health: 200,
+        attackPower: 10,
+        attacks: ['Nibble', 'Claw', 'Bite', 'Pounce']
+    }
+    // Lernaean Hydra
+    let hydra = {
+        name: "Lernaean Hydra",
+        descriptor: "The Impossible Nine-Headed",
+        health: 250,
+        attackPower: 20,
+        attacks: ['Bite', 'Regenerate', 'Constrict']
+    }
+
     // Intro
     alert("You open your eyes and see King Eurystheus, the grandson of the hero Perseus and King of Greece.")
     alert("King Eurystheus:\nWelcome Hercules! You are about to embark on the quest to capture Cerberus, the guard dog of the Underworld!");
