@@ -19,7 +19,6 @@ function attack(attacker, defender) {
 // battle controls the turn order and when an object reaches 0 health
 function battle(player, enemy) {
     while (player.health > 0 && enemy.health > 0) {
-       attack(player, enemy);
         if (player.defending === false) {
             enemy = attack(player, enemy);
             player.defending = !player.defending;
@@ -39,7 +38,7 @@ function runGame(){
         name: "Hercules",
         health: 100,
         attackPower: 10,
-        defending: false,
+        defending: true,
         attacks: ['Uppercut', 'Right Hook', 'Round House Kick', 'Full Nelson']
     }
     // Nemean Lion
@@ -56,7 +55,7 @@ function runGame(){
         descriptor: "The Impossible Nine-Headed",
         health: 250,
         attackPower: 20,
-        attacks: ['Bite', 'Regenerate', 'Constrict']
+        attacks: ['Bite', 'Regenerate', 'Constrict', 'Spit Poison']
     }
 
     // Intro
