@@ -29,3 +29,10 @@ let dogo = {
     descriptor: "The Underworld Dogo"
 }
 
+while (player.health > 0 || lion.health > 0) {
+    function attack(attacker, defender) {
+        defender.health -= attacker.attackPower;
+    }
+    attack(player, lion);
+    attack(lion, player);
+}
